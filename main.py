@@ -23,6 +23,18 @@ class HomePage:
         self.bg_image = self.bg_image.resize((self.window_width, self.window_height), Image.LANCZOS) #resizes the image to match the parent aspect ratio
         self.bg_image_tk = ImageTk.PhotoImage(self.bg_image)
 
+        # label for image
+        self.image_label = Label(self.pframe, image=self.bg_image_tk)
+        self.image_label.place(x=0, y=0, relwidth=1, relheight=1)  # make label l to fit the parent window always
+
+        # setting a  image (using my canva design without any widgets)
+        self.continue_image = Image.open("continuebutton.png")  # using my canva design
+        self.continue_image_tk = ImageTk.PhotoImage(self.continue_image)
+
+        # The button which allows the user to continue from the homepage into the quiz
+        self.continue_button = Button(self.pframe, command=self.nextpage, image=self.continue_image_tk, background=background_color,
+                                      activebackground=background_color, borderwidth = 0, cursor = "hand2")
+        self.continue_button.place(x=510, y=447)
 root = Tk()  # create the main window
 root.title("MRGS TOILETS")  # set the title of the window
 root.attributes("-fullscreen", True)
