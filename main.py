@@ -1,6 +1,7 @@
 import sys
 from sys import setrecursionlimit
 from tkinter import *  # Importing all classes from tkinter module
+import customtkinter
 from PIL import Image, ImageTk
 import random
 #Home page
@@ -34,7 +35,17 @@ class HomePage:
         # The button which allows the user to continue from the homepage into the quiz
         self.continue_button = Button(self.pframe, command=self.nextpage, image=self.continue_image_tk, background=background_color,
                                       activebackground=background_color, borderwidth = 0, cursor = "hand2")
-        self.continue_button.place(x=510, y=447)
+        self.continue_button.place(relx=0.5, rely=0.8, anchor="center")
+
+        #creates label that has body text
+        self.body_text = Label(self.pframe, font=("Inter", "30"),text="""Everyone at MRGS deserves running facilities, and you can help 
+        us maintain this with only a little effort on your part. 
+        This website allows you to report all instances of damage to the 
+        school whenever spotted and the damage will be fixed as soon 
+        as possible.""", fg="#FFFFFF", bg=background_color)
+        self.body_text.place(relx=0.5,rely=0.55,anchor="center")
+
+
 root = Tk()  # create the main window
 root.title("MRGS TOILETS")  # set the title of the window
 root.attributes("-fullscreen", True)
