@@ -37,6 +37,15 @@ class HomePage:
                                       activebackground=background_color, borderwidth = 0, cursor = "hand2")
         self.continue_button.place(relx=0.5, rely=0.8, anchor="center")
 
+        # setting a  image (using my canva design without any widgets)
+        self.question_image = Image.open("questionmark.png")  # using my canva design
+        self.question_image_tk = ImageTk.PhotoImage(self.question_image)
+
+        # The button which allows the user to continue from the homepage into the quiz
+        self.question_button = Button(self.pframe, command=self.nextpage, image=self.question_image_tk, background=background_color,
+                                      activebackground=background_color, borderwidth = 0, cursor = "hand2")
+        self.question_button.place(relx=0.55, rely=0.8, anchor="center")
+
         #creates label that has body text
         self.body_text = Label(self.pframe, font=("Inter", "30"),text="""Everyone at MRGS deserves running facilities, and you can help 
         us maintain this with only a little effort on your part. 
@@ -45,6 +54,9 @@ class HomePage:
         as possible.""", fg="#FFFFFF", bg=background_color)
         self.body_text.place(relx=0.5,rely=0.55,anchor="center")
 
+
+class choice:
+    pass
 
 root = Tk()  # create the main window
 root.title("MRGS TOILETS")  # set the title of the window
