@@ -8,6 +8,8 @@ import random
 class HomePage:
     def nextpage(self):
         self.pframe.destroy()
+    def help_page(self):
+        self.dialogue = customtkinter.CTKButtonDialog(text = "blah blah blah" , title = "Help")
     def __init__(self, parent):
         #makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
         self.window_width = parent.winfo_screenwidth()
@@ -42,9 +44,9 @@ class HomePage:
         self.question_image_tk = ImageTk.PhotoImage(self.question_image)
 
         # The button which allows the user to continue from the homepage into the quiz
-        self.question_button = Button(self.pframe, command=self.nextpage, image=self.question_image_tk, background=background_color,
+        self.question_button = customtkinter.CTkButton(self.pframe, command=self.help_page, image=self.question_image_tk, background=background_color,
                                       activebackground=background_color, borderwidth = 0, cursor = "hand2")
-        self.question_button.place(relx=0.55, rely=0.8, anchor="center")
+        self.question_button.place(relx=0.62, rely=0.8, anchor="center")
 
         #creates label that has body text
         self.body_text = Label(self.pframe, font=("Inter", "30"),text="""Everyone at MRGS deserves running facilities, and you can help 
