@@ -8,8 +8,19 @@ import random
 class HomePage:
     def nextpage(self):
         self.pframe.destroy()
+
     def help_page(self):
-        self.dialogue = customtkinter.CTKButtonDialog(text = "blah blah blah" , title = "Help")
+        self.about_image = Image.open("about.png")  # background image for the help button
+        self.about_image_tk = ImageTk.PhotoImage(self.about_image)
+
+        self.help_label = Label(self.pframe, image=self.about_image_tk)
+        self.help_label.place(relx=0.5, rely=0.5, relwidth=0.30, relheight=0.25, anchor="center")
+
+
+
+    def destroyhelp(self):
+        self.help_label.destroy()
+
     def __init__(self, parent):
         #makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
         self.window_width = parent.winfo_screenwidth()
@@ -19,7 +30,6 @@ class HomePage:
         # frame set up
         self.pframe = Frame(parent, bg=background_color)
         self.pframe.pack(fill=BOTH, expand=TRUE)
-
 
         #setting a background image (using my canva design without any widgets)
         self.bg_image = Image.open("Homepage.png") #using my canva design
@@ -44,12 +54,12 @@ class HomePage:
         self.question_image_tk = ImageTk.PhotoImage(self.question_image)
 
         # The button which allows the user to continue from the homepage into the quiz
-        self.question_button = customtkinter.CTkButton(self.pframe, command=self.help_page, image=self.question_image_tk, background=background_color,
+        self.question_button = Button(self.pframe, command=self.help_page, image=self.question_image_tk, background=background_color,
                                       activebackground=background_color, borderwidth = 0, cursor = "hand2")
         self.question_button.place(relx=0.62, rely=0.8, anchor="center")
 
         #creates label that has body text
-        self.body_text = Label(self.pframe, font=("Inter", "30"),text="""Everyone at MRGS deserves running facilities, and you can help 
+        self.body_text = Label(self.pframe, font=("Inter", "30"), text="""Everyone at MRGS deserves running facilities, and you can help 
         us maintain this with only a little effort on your part. 
         This website allows you to report all instances of damage to the 
         school whenever spotted and the damage will be fixed as soon 
