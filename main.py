@@ -2,9 +2,11 @@ import sys
 from sys import setrecursionlimit
 from tkinter import *  # Importing all classes from tkinter module
 import customtkinter
+import pywinstyles
 from PIL import Image, ImageTk
 import random
 #Home page
+pywinstyles.apply_style(window, style)
 class HomePage:
     def nextpage(self):
         self.pframe.destroy()
@@ -12,11 +14,15 @@ class HomePage:
     def help_page(self):
         self.about_image = Image.open("about.png")  # background image for the help button
         self.about_image_tk = ImageTk.PhotoImage(self.about_image)
+        self.help_label = Label(self.pframe, image=self.about_image_tk, text ="blahblah blah")
+        self.help_label.place(relx=0.5, rely=0.5, anchor="center")
 
-        self.help_label = Label(self.pframe, image=self.about_image_tk)
-        self.help_label.place(relx=0.5, rely=0.5, relwidth=0.30, relheight=0.25, anchor="center")
+        # setting a  image (using my canva design without any widgets)
+        self.exithelp_image = Image.open("exithelp.png")  # using my canva design
+        self.exithelp_image_tk = ImageTk.PhotoImage(self.exithelp_image)
 
-
+        self.exithelp_button = Button(self.pframe, command=self.destroyhelp, image=self.exithelp_image_tk, borderwidth=0, cursor="hand2")
+        self.exithelp_button.place(relx=0.655, rely=0.385, anchor="center")
 
     def destroyhelp(self):
         self.help_label.destroy()
