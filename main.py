@@ -6,26 +6,36 @@ import pywinstyles
 from PIL import Image, ImageTk
 import random
 #Home page
-pywinstyles.apply_style(window, style)
+
 class HomePage:
     def nextpage(self):
         self.pframe.destroy()
 
     def help_page(self):
+        #sets a label which looks like a popup, and will contain text explaining what the program is meant to do
         self.about_image = Image.open("about.png")  # background image for the help button
         self.about_image_tk = ImageTk.PhotoImage(self.about_image)
-        self.help_label = Label(self.pframe, image=self.about_image_tk, text ="blahblah blah")
+        self.help_label = Label(self.pframe, image=self.about_image_tk, bg = "#3d3739")
         self.help_label.place(relx=0.5, rely=0.5, anchor="center")
+        pywinstyles.set_opacity(self.help_label, color="#3d3739")
 
-        # setting a  image (using my canva design without any widgets)
+        #sets a button with an x sign, which will close the popup when clicked on
         self.exithelp_image = Image.open("exithelp.png")  # using my canva design
         self.exithelp_image_tk = ImageTk.PhotoImage(self.exithelp_image)
 
-        self.exithelp_button = Button(self.pframe, command=self.destroyhelp, image=self.exithelp_image_tk, borderwidth=0, cursor="hand2")
+        self.exithelp_button = Button(self.pframe, command=self.destroyhelp, image=self.exithelp_image_tk, borderwidth=0, cursor="hand2", bg = "#3d3739")
         self.exithelp_button.place(relx=0.655, rely=0.385, anchor="center")
+        pywinstyles.set_opacity(self.exithelp_button, color="#3d3739")
+
+        self.help_text = Label(self.pframe, image=self.about_image_tk, text = """This program allows students to report 
+                                                                              damage within the school’s toilets, and will 
+                                                                              help our staff repair damage and clean the 
+                                                                              bathroom faster. Press CONTINUE to report""", bg = "#4e4a59") #HAVE TO FIX THIS
+        self.help_text.place(relx=0.5, rely=0.5, anchor="center")
 
     def destroyhelp(self):
         self.help_label.destroy()
+        self.exithelp_button.destroy()
 
     def __init__(self, parent):
         #makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
