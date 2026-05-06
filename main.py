@@ -62,8 +62,9 @@ class HomePage:
         self.continue_image_tk = ImageTk.PhotoImage(self.continue_image)
 
         # The button which allows the user to continue from the homepage into the quiz
-        self.continue_button = Button(self.pframe, command=self.nextpage, image=self.continue_image_tk, borderwidth = 0, cursor = "hand2")
-        self.continue_button.place(relx=0.5, rely=0.8, relwidth = 0.3, relheight = 0.25, anchor="center")
+        self.continue_button = Button(self.pframe, command=self.nextpage, image=self.continue_image_tk, background=background_color,
+                                      activebackground=background_color, borderwidth = 0, cursor = "hand2")
+        self.continue_button.place(relx=0.5, rely=0.8, anchor="center")
 
         # setting a  image (using my canva design without any widgets)
         self.question_image = Image.open("questionmark.png")  # using my canva design
