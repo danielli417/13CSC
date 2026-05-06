@@ -27,15 +27,16 @@ class HomePage:
         self.exithelp_button.place(relx=0.655, rely=0.385, anchor="center")
         pywinstyles.set_opacity(self.exithelp_button, color="#3d3739")
 
-        self.help_text = Label(self.pframe, image=self.about_image_tk, text = """This program allows students to report 
-                                                                              damage within the school’s toilets, and will 
-                                                                              help our staff repair damage and clean the 
-                                                                              bathroom faster. Press CONTINUE to report""", bg = "#4e4a59") #HAVE TO FIX THIS
-        self.help_text.place(relx=0.5, rely=0.5, anchor="center")
+        self.help_text = Label(self.pframe, text = """This program allows students to report 
+        damage within the school’s toilets, and will 
+        help our staff repair damage and clean the 
+        bathroom faster. Press CONTINUE to report""", font=("Inter", "22"), fg="#ffffff", bg = "#4e4a59") #HAVE TO FIX THIS
+        self.help_text.place(relx=0.49, rely=0.5, anchor="center")
 
     def destroyhelp(self):
         self.help_label.destroy()
         self.exithelp_button.destroy()
+        self.help_text.destroy()
 
     def __init__(self, parent):
         #makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
@@ -61,9 +62,8 @@ class HomePage:
         self.continue_image_tk = ImageTk.PhotoImage(self.continue_image)
 
         # The button which allows the user to continue from the homepage into the quiz
-        self.continue_button = Button(self.pframe, command=self.nextpage, image=self.continue_image_tk, background=background_color,
-                                      activebackground=background_color, borderwidth = 0, cursor = "hand2")
-        self.continue_button.place(relx=0.5, rely=0.8, anchor="center")
+        self.continue_button = Button(self.pframe, command=self.nextpage, image=self.continue_image_tk, borderwidth = 0, cursor = "hand2")
+        self.continue_button.place(relx=0.5, rely=0.8, relwidth = 0.3, relheight = 0.25, anchor="center")
 
         # setting a  image (using my canva design without any widgets)
         self.question_image = Image.open("questionmark.png")  # using my canva design
