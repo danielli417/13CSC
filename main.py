@@ -10,7 +10,7 @@ import random
 class HomePage:
     def nextpage(self):
         self.pframe.destroy()
-
+        choice(root)
     def help_page(self):
         #sets a label which looks like a popup, and will contain text explaining what the program is meant to do
         self.about_image = Image.open("about.png")  # background image for the help button
@@ -85,7 +85,26 @@ class HomePage:
 
 
 class choice:
-    pass
+    def __init__(self, parent):
+        self.window_width = parent.winfo_screenwidth()
+        self.window_height = parent.winfo_screenheight()
+        background_color = "#364156"
+
+        # frame set up
+        self.pframe = Frame(parent, bg=background_color)
+        self.pframe.pack(fill=BOTH, expand=TRUE)
+
+
+        # setting a background image (using my canva design without any widgets)
+        self.bg_image = Image.open("choice.png")  # using my canva design
+        self.bg_image = self.bg_image.resize((self.window_width, self.window_height),
+                                         Image.LANCZOS)  # resizes the image to match the parent aspect ratio
+        self.bg_image_tk = ImageTk.PhotoImage(self.bg_image)
+
+        # label for image
+        self.image_label = Label(self.pframe, image=self.bg_image_tk)
+        self.image_label.place(x=0, y=0, relwidth=1, relheight=1)  # make label l to fit the parent window always
+
 
 root = Tk()  # create the main window
 root.title("MRGS TOILETS")  # set the title of the window
