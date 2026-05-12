@@ -85,31 +85,43 @@ class HomePage:
 
 
 class Choice:
+    def nextpage(self):
+        self.pframe.destroy()
+        Choice(root)
     def __init__(self, parent):
+        # makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
         self.window_width = parent.winfo_screenwidth()
         self.window_height = parent.winfo_screenheight()
         background_color = "#364156"
+        button_color = "#011638"
 
         # frame set up
         self.pframe = Frame(parent, bg=background_color)
         self.pframe.pack(fill=BOTH, expand=TRUE)
 
-
         # setting a background image (using my canva design without any widgets)
-        self.bg_image = Image.open("choice.png")  # using my canva design
-        self.bg_image = self.bg_image.resize((self.window_width, self.window_height),
-                                         Image.LANCZOS)  # resizes the image to match the parent aspect ratio
-        self.bg_image_tk = ImageTk.PhotoImage(self.bg_image)
+        self.bg_image2 = Image.open("choice.png")  # using my canva design
+        self.bg_image2 = self.bg_image2.resize((self.window_width, self.window_height),
+                                             Image.LANCZOS)  # resizes the image to match the parent aspect ratio
+        self.bg_image2_tk = ImageTk.PhotoImage(self.bg_image2)
 
         # label for image
-        self.image_label = Label(self.pframe, image=self.bg_image_tk)
+        self.image_label = Label(self.pframe, image=self.bg_image2_tk)
         self.image_label.place(x=0, y=0, relwidth=1, relheight=1)  # make label l to fit the parent window always
+        self.image_label.image = self.bg_image2_tk
 
-        # The button which allows the user to continue from the homepage into the quiz
-        self.continue_button = Button(self.pframe, command=self.nextpage, image=self.continue_image_tk,
-                                      background=background_color,
-                                      activebackground=background_color, borderwidth=0, cursor="hand2")
-        self.continue_button.place(relx=0.5, rely=0.8, anchor="center")
+        # creates label that has body text
+        self.body_text = Label(self.pframe, font=("Inter", "30"), text="""Everyone at MRGS deserves running facilities, and you can help 
+                us maintain this with only a little effort on your part. 
+                This website allows you to report all instances of damage to the 
+                school whenever spotted and the damage will be fixed as soon 
+                as possible.""", fg="#FFFFFF", bg=background_color)
+        self.body_text.place(relx=0.5, rely=0.55, anchor="center")
+
+        self.A_button = Button(self.pframe, background=button_color, activebackground=button_color, borderwidth=0, cursor="hand2")
+        self.A_button.place(relx=0.5, rely=0.8, relwidth=0.5, relheight=0.5, anchor="center")
+
+
 
 root = Tk()  # create the main window
 root.title("MRGS TOILETS")  # set the title of the window
