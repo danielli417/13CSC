@@ -10,7 +10,7 @@ import random
 class HomePage:
     def nextpage(self):
         self.pframe.destroy()
-        choice(root)
+        Choice(root)
     def help_page(self):
         #sets a label which looks like a popup, and will contain text explaining what the program is meant to do
         self.about_image = Image.open("about.png")  # background image for the help button
@@ -84,7 +84,7 @@ class HomePage:
         self.body_text.place(relx=0.5,rely=0.55,anchor="center")
 
 
-class choice:
+class Choice:
     def __init__(self, parent):
         self.window_width = parent.winfo_screenwidth()
         self.window_height = parent.winfo_screenheight()
@@ -105,6 +105,11 @@ class choice:
         self.image_label = Label(self.pframe, image=self.bg_image_tk)
         self.image_label.place(x=0, y=0, relwidth=1, relheight=1)  # make label l to fit the parent window always
 
+        # The button which allows the user to continue from the homepage into the quiz
+        self.continue_button = Button(self.pframe, command=self.nextpage, image=self.continue_image_tk,
+                                      background=background_color,
+                                      activebackground=background_color, borderwidth=0, cursor="hand2")
+        self.continue_button.place(relx=0.5, rely=0.8, anchor="center")
 
 root = Tk()  # create the main window
 root.title("MRGS TOILETS")  # set the title of the window
