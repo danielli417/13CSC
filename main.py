@@ -110,16 +110,14 @@ class Choice:
         self.image_label.place(x=0, y=0, relwidth=1, relheight=1)  # make label l to fit the parent window always
         self.image_label.image = self.bg_image2_tk
 
-        # creates label that has body text
-        self.body_text = Label(self.pframe, font=("Inter", "30"), text="""Everyone at MRGS deserves running facilities, and you can help 
-                us maintain this with only a little effort on your part. 
-                This website allows you to report all instances of damage to the 
-                school whenever spotted and the damage will be fixed as soon 
-                as possible.""", fg="#FFFFFF", bg=background_color)
-        self.body_text.place(relx=0.5, rely=0.55, anchor="center")
+        self.A_button = Button(self.pframe, bg=button_color, activebackground=button_color, font=("Inter", "220", "bold"), text = "A", fg="white", borderwidth=0, cursor="hand2")
+        self.A_button.place(relx=0.295, rely=0.535, relwidth=0.365, relheight=0.68, anchor="center")
 
-        self.A_button = Button(self.pframe, background=button_color, activebackground=button_color, borderwidth=0, cursor="hand2")
-        self.A_button.place(relx=0.5, rely=0.8, relwidth=0.5, relheight=0.5, anchor="center")
+        self.E_button = Button(self.pframe, bg=button_color, activebackground=button_color, font=("Inter", "220", "bold"), text = "E", fg="white", borderwidth=0, cursor="hand2")
+        self.E_button.place(relx=0.705, rely=0.535, relwidth=0.365, relheight=0.68, anchor="center")
+
+
+
 
 
 
