@@ -93,7 +93,7 @@ class Choice:
         self.window_width = parent.winfo_screenwidth()
         self.window_height = parent.winfo_screenheight()
         background_color = "#364156"
-        button_color = "#011638"
+        button_color = "#01122e"
 
         # frame set up
         self.pframe = Frame(parent, bg=background_color)
@@ -110,14 +110,24 @@ class Choice:
         self.image_label.place(x=0, y=0, relwidth=1, relheight=1)  # make label l to fit the parent window always
         self.image_label.image = self.bg_image2_tk
 
-        self.A_button = Button(self.pframe, bg=button_color, activebackground=button_color, font=("Inter", "220", "bold"), text = "A", fg="white", borderwidth=0, cursor="hand2")
+        # button for selecting a block
+        self.A_button = Button(self.pframe, bg=button_color, activebackground=button_color, font=("Inter", "400", "bold"), text = "A", fg="white", borderwidth=0, cursor="hand2")
         self.A_button.place(relx=0.295, rely=0.535, relwidth=0.365, relheight=0.68, anchor="center")
 
-        self.E_button = Button(self.pframe, bg=button_color, activebackground=button_color, font=("Inter", "220", "bold"), text = "E", fg="white", borderwidth=0, cursor="hand2")
+        #button for selecting e block
+        self.E_button = Button(self.pframe, bg=button_color, activebackground=button_color, font=("Inter", "400", "bold"), text = "E", fg="white", borderwidth=0, cursor="hand2")
         self.E_button.place(relx=0.705, rely=0.535, relwidth=0.365, relheight=0.68, anchor="center")
 
+        #label for the subheader
+        self.click_label = Label(self.pframe, bg=background_color, font=("Inter", "28", "underline"), fg="white", text = "Click to select")
+        self.click_label.place(relx = 0.5, rely = 0.12, anchor="center")
 
+        #labels saying "block" under the buttons
+        self.A_label = Label(self.pframe, bg=button_color, font=("Inter", "50", "bold"), text = "Block", fg="white")
+        self.A_label.place(relx=0.295, rely=0.8, anchor="center")
 
+        self.E_label = Label(self.pframe, bg=button_color, font=("Inter", "50", "bold"), text = "Block", fg="white")
+        self.E_label.place(relx=0.705, rely=0.8, anchor="center")
 
 
 
