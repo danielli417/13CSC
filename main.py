@@ -38,6 +38,10 @@ class HomePage:
         self.exithelp_button.destroy()
         self.help_text.destroy()
 
+    def shutdown(self):
+        exit()
+
+
     def __init__(self, parent):
         #makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
         self.window_width = parent.winfo_screenwidth()
@@ -57,7 +61,7 @@ class HomePage:
         self.image_label = Label(self.pframe, image=self.bg_image_tk)
         self.image_label.place(x=0, y=0, relwidth=1, relheight=1)  # make label l to fit the parent window always
 
-        # setting a  image (using my canva design without any widgets)
+        # setting a image (using my canva design without any widgets)
         self.continue_image = Image.open("continuebutton.png")  # using my canva design
         self.continue_image_tk = ImageTk.PhotoImage(self.continue_image)
 
@@ -65,6 +69,14 @@ class HomePage:
         self.continue_button = Button(self.pframe, command=self.nextpage, image=self.continue_image_tk, background=background_color,
                                       activebackground=background_color, borderwidth = 0, cursor = "hand2")
         self.continue_button.place(relx=0.5, rely=0.8, anchor="center")
+
+        # sets a button with an x sign, which will close the program when clicked on
+        self.shutdown_image = Image.open("exithelp.png")
+        self.shutdown_image_tk = ImageTk.PhotoImage(self.shutdown_image)
+
+        self.shutdown_button = Button(self.pframe, command=self.shutdown, image=self.shutdown_image_tk, background=background_color,
+                                      activebackground=background_color, borderwidth = 0, cursor = "hand2")
+        self.shutdown_button.place(relx=0.95, rely=0.08, anchor="center")
 
         # setting a  image (using my canva design without any widgets)
         self.question_image = Image.open("questionmark.png")  # using my canva design
@@ -87,7 +99,7 @@ class HomePage:
 class Choice:
     def nextpage(self):
         self.pframe.destroy()
-        HomePage(root)
+        Selector(root)
 
     def clicked_a(self):
         global a_or_e
@@ -138,8 +150,42 @@ class Choice:
         self.E_label = Label(self.pframe, bg=button_color, font=("Inter", "50", "bold"), text = "Block", fg="white")
         self.E_label.place(relx=0.705, rely=0.8, anchor="center")
 
-    class Report:
-        pass
+class Selector:
+    def __init__(self, parent):
+        # makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
+        self.window_width = parent.winfo_screenwidth()
+        self.window_height = parent.winfo_screenheight()
+        background_color = "#364156"
+        button_color = "#01122e"
+        global a_or_e
+
+        # frame set up
+        self.pframe = Frame(parent, bg=background_color)
+        self.pframe.pack(fill=BOTH, expand=TRUE)
+
+        # setting a background image (using my canva design without any widgets)
+        self.bg_image3 = Image.open("select.png")  # using my canva design
+        self.bg_image3 = self.bg_image3.resize((self.window_width, self.window_height),
+                                                   Image.LANCZOS)  # resizes the image to match the parent aspect ratio
+        self.bg_image3_tk = ImageTk.PhotoImage(self.bg_image3)
+
+        # label for image
+        self.image_label = Label(self.pframe, image=self.bg_image3_tk)
+        self.image_label.place(x=0, y=0, relwidth=1, relheight=1)  # make label l to fit the parent window always
+        self.image_label.image = self.bg_image3_tk
+
+        # label for the main selection image
+        self.selection = Label(self.pframe, bg = "black")
+        self.selection.place(relx=0.5, rely=0.4275, relwidth = 0.915, relheight =0.635, anchor="center")
+
+        # for a
+        if a_or_e == 1:
+            self.button = Button()
+        #for e
+        else:
+            self.button = Button()
+
+
 
 
 root = Tk()  # create the main window
