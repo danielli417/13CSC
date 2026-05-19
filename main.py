@@ -178,12 +178,45 @@ class Selector:
         self.selection = Label(self.pframe, bg = "black")
         self.selection.place(relx=0.5, rely=0.4275, relwidth = 0.915, relheight =0.635, anchor="center")
 
+        # setting a image (using my canva design without any widgets)
+        self.report_image = Image.open("reportbutton.png")  # using my canva design
+        self.report_image_tk = ImageTk.PhotoImage(self.report_image)
+
+        # The button which allows the user to continue from the homepage into the quiz
+        self.report_button = Button(self.pframe, image=self.report_image_tk, bg=button_color, activebackground=button_color,
+                                    borderwidth=0, cursor="hand2")
+        self.report_button.place(relx=0.5, rely=0.5, anchor="center")
+
         # for a
         if a_or_e == 1:
-            self.button = Button()
+            self.selection = Label(self.pframe)
+            #skip this for now
+
         #for e
         else:
             self.button = Button()
+
+
+
+
+class ReportDetails:
+    def __init__(self, parent):
+        # makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
+        self.window_width = parent.winfo_screenwidth()
+        self.window_height = parent.winfo_screenheight()
+        background_color = "#364156"
+        button_color = "#01122e"
+        global a_or_e
+
+        # frame set up
+        self.pframe = Frame(parent, bg=background_color)
+        self.pframe.pack(fill=BOTH, expand=TRUE)
+
+        # setting a background image (using my canva design without any widgets)
+        self.bg_image4 = Image.open("ReportDetails.png")  # using my canva design
+        self.bg_image4 = self.bg_image4.resize((self.window_width, self.window_height),
+                                               Image.LANCZOS)  # resizes the image to match the parent aspect ratio
+        self.bg_image4_tk = ImageTk.PhotoImage(self.bg_image4)
 
 
 
