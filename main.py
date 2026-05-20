@@ -157,8 +157,13 @@ class Selector:
         self.window_height = parent.winfo_screenheight()
         background_color = "#364156"
         button_color = "#01122e"
+        block = ''
+        stall = ''
         global a_or_e
-
+        if a_or_e:
+            block = 'A'
+        else:
+            block = 'E'
         # frame set up
         self.pframe = Frame(parent, bg=background_color)
         self.pframe.pack(fill=BOTH, expand=TRUE)
@@ -169,23 +174,38 @@ class Selector:
                                                    Image.LANCZOS)  # resizes the image to match the parent aspect ratio
         self.bg_image3_tk = ImageTk.PhotoImage(self.bg_image3)
 
-        # label for image
+        # label for background image
         self.image_label = Label(self.pframe, image=self.bg_image3_tk)
         self.image_label.place(x=0, y=0, relwidth=1, relheight=1)  # make label l to fit the parent window always
         self.image_label.image = self.bg_image3_tk
 
-        # label for the main selection image
+        # label for the main selection image in the centre of the screen
         self.selection = Label(self.pframe, bg = "black")
         self.selection.place(relx=0.5, rely=0.4275, relwidth = 0.915, relheight =0.635, anchor="center")
 
-        # setting a image (using my canva design without any widgets)
-        self.report_image = Image.open("reportbutton.png")  # using my canva design
-        self.report_image_tk = ImageTk.PhotoImage(self.report_image)
+        # setting an image for my report button
+        self.report_button = Image.open("reportbutton.png")  # using my canva design
+        self.report_button_tk = ImageTk.PhotoImage(self.report_button)
 
-        # The button which allows the user to continue from the homepage into the quiz
-        self.report_button = Button(self.pframe, image=self.report_image_tk, bg=button_color, activebackground=button_color,
+        # Report button
+        self.report_button = Button(self.pframe, image=self.report_button_tk, bg="#293142", activebackground="#293142",
                                     borderwidth=0, cursor="hand2")
-        self.report_button.place(relx=0.5, rely=0.5, anchor="center")
+        self.report_button.place(relx=0.8, rely=0.89 , anchor="center")
+        self.report_button.image = self.report_button_tk
+
+        # setting an image for the back button
+        self.back_button_img = Image.open("backarrow.png")  # using my canva design
+        self.back_button_img_tk = ImageTk.PhotoImage(self.back_button_img)
+
+        # Back button
+        self.back_button = Button(self.pframe, image=self.back_button_img_tk, bg="#293142", activebackground="#293142",
+                                    borderwidth=0, cursor="hand2")
+        self.back_button.place(relx=0.07, rely=0.89 , anchor="center")
+        self.back_button.image = self.back_button_img_tk
+
+        #Label to display the currently selected toilet stall
+        self.current_selection = Label(self.pframe, bg="#394053", fg="white", font=("Inter", "27"), text=f"Currently Selected: {block} stall {stall}")
+        self.current_selection.place(relx=0.38, rely=0.89, relwidth=0.45, relheight=0.12, anchor="center")  # make label l to fit the parent window always
 
         # for a
         if a_or_e == 1:
