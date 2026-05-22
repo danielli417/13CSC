@@ -41,7 +41,6 @@ class HomePage:
     def shutdown(self):
         exit()
 
-
     def __init__(self, parent):
         #makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
         self.window_width = parent.winfo_screenwidth()
@@ -97,6 +96,9 @@ class HomePage:
 
 
 class Choice:
+    def backpage(self):
+        self.pframe.destroy()
+        HomePage(root)
     def nextpage(self):
         self.pframe.destroy()
         Selector(root)
@@ -106,6 +108,8 @@ class Choice:
         a_or_e = 1 #this variable is changed to a (1 = a, 0 = e)
         self.nextpage()
 
+    def shutdown(self):
+        exit()
 
     def __init__(self, parent):
         # makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
@@ -150,7 +154,31 @@ class Choice:
         self.E_label = Label(self.pframe, bg=button_color, font=("Inter", "50", "bold"), text = "Block", fg="white")
         self.E_label.place(relx=0.705, rely=0.8, anchor="center")
 
+        # setting an image for the back button
+        self.back_button_img = Image.open("backarrow.png")  # using my canva design
+        self.back_button_img_tk = ImageTk.PhotoImage(self.back_button_img)
+
+        # Back button
+        self.back_button = Button(self.pframe, image=self.back_button_img_tk, command=self.backpage, bg="#364156", activebackground="#364156",
+                                    borderwidth=0, cursor="hand2")
+        self.back_button.place(relx=0.05, rely=0.89 , anchor="center")
+        self.back_button.image = self.back_button_img_tk
+
+        # sets a button with an x sign, which will close the program when clicked on
+        self.shutdown_image = Image.open("exithelp.png")
+        self.shutdown_image_tk = ImageTk.PhotoImage(self.shutdown_image)
+
+        self.shutdown_button = Button(self.pframe, command=self.shutdown, image=self.shutdown_image_tk,
+                                      background=background_color,
+                                      activebackground=background_color, borderwidth=0, cursor="hand2")
+        self.shutdown_button.place(relx=0.95, rely=0.08, anchor="center")
+
 class Selector:
+    def shutdown(self):
+        exit()
+    def backpage(self):
+        self.pframe.destroy()
+        Choice(root)
     def __init__(self, parent):
         # makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
         self.window_width = parent.winfo_screenwidth()
@@ -198,7 +226,7 @@ class Selector:
         self.back_button_img_tk = ImageTk.PhotoImage(self.back_button_img)
 
         # Back button
-        self.back_button = Button(self.pframe, image=self.back_button_img_tk, bg="#293142", activebackground="#293142",
+        self.back_button = Button(self.pframe, image=self.back_button_img_tk, command=self.backpage, bg="#293142", activebackground="#293142",
                                     borderwidth=0, cursor="hand2")
         self.back_button.place(relx=0.07, rely=0.89 , anchor="center")
         self.back_button.image = self.back_button_img_tk
@@ -206,6 +234,15 @@ class Selector:
         #Label to display the currently selected toilet stall
         self.current_selection = Label(self.pframe, bg="#394053", fg="white", font=("Inter", "27"), text=f"Currently Selected: {block} stall {stall}")
         self.current_selection.place(relx=0.38, rely=0.89, relwidth=0.45, relheight=0.12, anchor="center")  # make label l to fit the parent window always
+
+        # sets a button with an x sign, which will close the program when clicked on
+        self.shutdown_image = Image.open("exithelp.png")
+        self.shutdown_image_tk = ImageTk.PhotoImage(self.shutdown_image)
+
+        self.shutdown_button = Button(self.pframe, command=self.shutdown, image=self.shutdown_image_tk,
+                                      background=background_color,
+                                      activebackground=background_color, borderwidth=0, cursor="hand2")
+        self.shutdown_button.place(relx=0.95, rely=0.06, anchor="center")
 
         # for a
         if a_or_e == 1:
@@ -215,9 +252,6 @@ class Selector:
         #for e
         else:
             self.button = Button()
-
-
-
 
 class ReportDetails:
     def __init__(self, parent):
@@ -237,7 +271,6 @@ class ReportDetails:
         self.bg_image4 = self.bg_image4.resize((self.window_width, self.window_height),
                                                Image.LANCZOS)  # resizes the image to match the parent aspect ratio
         self.bg_image4_tk = ImageTk.PhotoImage(self.bg_image4)
-
 
 
 
