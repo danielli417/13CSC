@@ -169,16 +169,21 @@ class Choice:
         self.shutdown_image_tk = ImageTk.PhotoImage(self.shutdown_image)
 
         self.shutdown_button = Button(self.pframe, command=self.shutdown, image=self.shutdown_image_tk,
-                                      background=background_color,
-                                      activebackground=background_color, borderwidth=0, cursor="hand2")
+                                      background=background_color, activebackground=background_color, borderwidth=0, cursor="hand2")
         self.shutdown_button.place(relx=0.95, rely=0.08, anchor="center")
 
 class Selector:
     def shutdown(self):
         exit()
+
     def backpage(self):
         self.pframe.destroy()
         Choice(root)
+
+    def nextpage(self):
+        self.pframe.destroy()
+        ReportDetails(root)
+
     def __init__(self, parent):
         # makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
         self.window_width = parent.winfo_screenwidth()
@@ -217,7 +222,7 @@ class Selector:
 
         # Report button
         self.report_button = Button(self.pframe, image=self.report_button_tk, bg="#293142", activebackground="#293142",
-                                    borderwidth=0, cursor="hand2")
+                                    borderwidth=0, cursor="hand2", command=self.nextpage)
         self.report_button.place(relx=0.8, rely=0.89 , anchor="center")
         self.report_button.image = self.report_button_tk
 
@@ -271,6 +276,17 @@ class ReportDetails:
         self.bg_image4 = self.bg_image4.resize((self.window_width, self.window_height),
                                                Image.LANCZOS)  # resizes the image to match the parent aspect ratio
         self.bg_image4_tk = ImageTk.PhotoImage(self.bg_image4)
+
+        # label for background image
+        self.image_label = Label(self.pframe, image=self.bg_image4_tk)
+        self.image_label.place(x=0, y=0, relwidth=1, relheight=1)  # make label l to fit the parent window always
+        self.image_label.image = self.bg_image4_tk
+
+        #4 labels for the text
+
+        self.label1 = Label(self.pframe, bg = "#cdcdcd", font =("Inter","25"))
+        self.label1.place()
+
 
 
 
