@@ -266,6 +266,7 @@ class ReportDetails:
         background_color = "#364156"
         button_color = "#01122e"
         global a_or_e
+        text_colour = "#394053"
 
         # frame set up
         self.pframe = Frame(parent, bg=background_color)
@@ -284,8 +285,21 @@ class ReportDetails:
 
         #4 labels for the text
 
-        self.label1 = Label(self.pframe, bg = "#cdcdcd", font =("Inter","25"))
-        self.label1.place()
+        self.label1 = Label(self.pframe, bg = "#cdcdcd", fg=text_colour, font =("Inter","25","bold"), text="Graffiti - Writing on the walls")
+        self.label1.place(relx= 0.375, rely=0.314, relwidth=0.55, relheight=0.12, anchor="center")
+
+        self.label2 = Label(self.pframe, bg = "#f7f8f8", fg="black", font =("Inter","25","bold"), text="Damage to property - damage to the door, toilets")
+        self.label2.place(relx= 0.375, rely=0.455, relwidth=0.55, relheight=0.12, anchor="center")
+
+        self.label3 = Label(self.pframe, bg = "#cdcdcd", fg=text_colour, font =("Inter","25","bold"), text="Waste - Dirty floors ")
+        self.label3.place(relx= 0.375, rely=0.596, relwidth=0.55, relheight=0.12, anchor="center")
+
+        self.label4 = Label(self.pframe, bg = "#f7f8f8", fg="black", font =("Inter","25","bold"), text="Clogging - Clogged toilet, sinks")
+        self.label4.place(relx= 0.375, rely=0.737, relwidth=0.55, relheight=0.12, anchor="center")
+
+
+
+
 
 
 
