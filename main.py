@@ -259,6 +259,14 @@ class Selector:
             self.button = Button()
 
 class ReportDetails:
+    def backpage(self):
+        self.pframe.destroy()
+        Selector(root)
+    def shutdown(self):
+        exit()
+    def nextpage(self):
+        self.pframe.destroy()
+        ReportDetails(root)
     def __init__(self, parent):
         # makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
         self.window_width = parent.winfo_screenwidth()
@@ -297,12 +305,45 @@ class ReportDetails:
         self.label4 = Label(self.pframe, bg = "#f7f8f8", fg="black", font =("Inter","25","bold"), text="Clogging - Clogged toilet, sinks")
         self.label4.place(relx= 0.375, rely=0.737, relwidth=0.55, relheight=0.12, anchor="center")
 
+        #label for button
+        self.support_image = Image.open("support.png")
+        self.support_image_tk = ImageTk.PhotoImage(self.support_image)
+
+        #Support us button
+        self.support_button = Button(self.pframe, image=self.support_image_tk,
+                                      background=background_color,
+                                      activebackground=background_color, borderwidth=0, cursor="hand2")
+        self.support_button.place(relx=0.15, rely=0.89, anchor="center")
+        self.support_button.image = self.support_image_tk
 
 
+        # setting an image for the back button
+        self.back_button_img = Image.open("backarrow.png")  # using my canva design
+        self.back_button_img_tk = ImageTk.PhotoImage(self.back_button_img)
+
+        # Back button
+        self.back_button = Button(self.pframe, image=self.back_button_img_tk, command=self.backpage, bg=background_color, activebackground=background_color,
+                                    borderwidth=0, cursor="hand2")
+        self.back_button.place(relx=0.05, rely=0.89, anchor="center")
+        self.back_button.image = self.back_button_img_tk
+
+        # sets a button with an x sign, which will close the program when clicked on
+        self.shutdown_image = Image.open("exithelp.png")
+        self.shutdown_image_tk = ImageTk.PhotoImage(self.shutdown_image)
+
+        self.shutdown_button = Button(self.pframe, command=self.shutdown, image=self.shutdown_image_tk,
+                                      background=background_color,
+                                      activebackground=background_color, borderwidth=0, cursor="hand2")
+        self.shutdown_button.place(relx=0.95, rely=0.06, anchor="center")
+        self.shutdown_button.image = self.shutdown_image_tk
+
+        #checkbutton
 
 
+        check1 = Checkbutton(self.pframe,
+                variable = check1, onvalue = 1, offvalue = 0,height = 2, width = 10)
 
-
+        #textbox for users to describe damage
 
 root = Tk()  # create the main window
 root.title("MRGS TOILETS")  # set the title of the window
