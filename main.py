@@ -337,12 +337,40 @@ class ReportDetails:
         self.shutdown_button.place(relx=0.95, rely=0.06, anchor="center")
         self.shutdown_button.image = self.shutdown_image_tk
 
+        #sendbutton
+        self.send_image = Image.open("sendbutton.png")
+        self.send_image_tk = ImageTk.PhotoImage(self.send_image)
+
+        self.send_button = Button(self.pframe, command=self.shutdown, image=self.send_image_tk,
+                                      background=background_color,
+                                      activebackground=background_color, borderwidth=0, cursor="hand2")
+        self.send_button.place(relx=0.5, rely=0.89, anchor="center")
+        self.send_button.image = self.send_image_tk
         #checkbutton
 
+        check1 = IntVar()
+        check2 = IntVar()
+        check3 = IntVar()
+        check4 = IntVar()
+        checkb1 = customtkinter.CTkCheckBox(self.pframe,
+                variable = check1, text="", onvalue = 1, offvalue=0, checkbox_width=50, checkbox_height=50,
+                                            width=50, height=50, bg_color="#cdcdcd", fg_color="green")
+        checkb1.place(relx=0.62, rely=0.315, anchor="center")
 
-        check1 = Checkbutton(self.pframe,
-                variable = check1, onvalue = 1, offvalue = 0,height = 2, width = 10)
+        checkb2 = customtkinter.CTkCheckBox(self.pframe,
+                variable = check2, text="", onvalue = 1, offvalue=0, checkbox_width=50, checkbox_height=50,
+                                            width=50, height=50, bg_color="#f7f8f8", fg_color="green")
+        checkb2.place(relx=0.62, rely=0.455, anchor="center")
 
+        checkb3 = customtkinter.CTkCheckBox(self.pframe,
+                variable = check3, text="", onvalue = 1, offvalue=0, checkbox_width=50, checkbox_height=50,
+                                            width=50, height=50, bg_color="#cdcdcd", fg_color="green")
+        checkb3.place(relx=0.62, rely=0.595, anchor="center")
+
+        checkb4 = customtkinter.CTkCheckBox(self.pframe,
+                variable = check4, text="", onvalue = 1, offvalue=0, checkbox_width=50, checkbox_height=50,
+                                            width=50, height=50, bg_color="#f7f8f8", fg_color="green")
+        checkb4.place(relx=0.62, rely=0.735, anchor="center")
         #textbox for users to describe damage
 
 root = Tk()  # create the main window
