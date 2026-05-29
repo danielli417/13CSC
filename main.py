@@ -259,6 +259,25 @@ class Selector:
             self.button = Button()
 
 class ReportDetails:
+    def clickedcheck1(self):
+        checkb2.deselect()
+        checkb3.deselect()
+        checkb4.deselect()
+    def clickedcheck2(self):
+        checkb1.deselect()
+        checkb3.deselect()
+        checkb4.deselect()
+
+    def clickedcheck3(self):
+        checkb1.deselect()
+        checkb2.deselect()
+        checkb4.deselect()
+
+    def clickedcheck4(self):
+        checkb1.deselect()
+        checkb2.deselect()
+        checkb3.deselect()
+
     def backpage(self):
         self.pframe.destroy()
         Selector(root)
@@ -347,32 +366,43 @@ class ReportDetails:
         self.send_button.place(relx=0.5, rely=0.89, anchor="center")
         self.send_button.image = self.send_image_tk
         #checkbutton
+        global check1
+        global check2
+        global check3
+        global check4
+        global checkb1
+        global checkb2
+        global checkb3
+        global checkb4
 
         check1 = IntVar()
         check2 = IntVar()
         check3 = IntVar()
         check4 = IntVar()
+
         checkb1 = customtkinter.CTkCheckBox(self.pframe,
-                variable = check1, text="", onvalue = 1, offvalue=0, checkbox_width=50, checkbox_height=50,
+                variable = check1, text="", onvalue = 1, command=self.clickedcheck1, offvalue=0, checkbox_width=50, checkbox_height=50,
                                             width=50, height=50, bg_color="#cdcdcd", fg_color="green")
         checkb1.place(relx=0.62, rely=0.315, anchor="center")
 
         checkb2 = customtkinter.CTkCheckBox(self.pframe,
-                variable = check2, text="", onvalue = 1, offvalue=0, checkbox_width=50, checkbox_height=50,
+                variable = check2, text="", onvalue = 1, command=self.clickedcheck2, offvalue=0, checkbox_width=50, checkbox_height=50,
                                             width=50, height=50, bg_color="#f7f8f8", fg_color="green")
         checkb2.place(relx=0.62, rely=0.455, anchor="center")
 
         checkb3 = customtkinter.CTkCheckBox(self.pframe,
-                variable = check3, text="", onvalue = 1, offvalue=0, checkbox_width=50, checkbox_height=50,
+                variable = check3, text="", onvalue = 1, command=self.clickedcheck3, offvalue=0, checkbox_width=50, checkbox_height=50,
                                             width=50, height=50, bg_color="#cdcdcd", fg_color="green")
         checkb3.place(relx=0.62, rely=0.595, anchor="center")
 
         checkb4 = customtkinter.CTkCheckBox(self.pframe,
-                variable = check4, text="", onvalue = 1, offvalue=0, checkbox_width=50, checkbox_height=50,
+                variable = check4, text="", onvalue = 1, command=self.clickedcheck4, offvalue=0, checkbox_width=50, checkbox_height=50,
                                             width=50, height=50, bg_color="#f7f8f8", fg_color="green")
         checkb4.place(relx=0.62, rely=0.735, anchor="center")
         #textbox for users to describe damage
 
+        user_entry = ""
+        submittext = customtkinter.CTkCheckBox(self.pframe, textvariable="", fg_color="#f7f8f8", )
 root = Tk()  # create the main window
 root.title("MRGS TOILETS")  # set the title of the window
 root.attributes("-fullscreen", True)
