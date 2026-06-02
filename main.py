@@ -30,7 +30,7 @@ class HomePage:
         self.help_text = Label(self.pframe, text = """This program allows students to report 
         damage within the school’s toilets, and will 
         help our staff repair damage and clean the 
-        bathroom faster. Press CONTINUE to report""", font=("Inter", "22"), fg="#ffffff", bg = "#4e4a59") #HAVE TO FIX THIS
+        bathroom faster. Press CONTINUE to report""", font=("Inter", 22), fg="#ffffff", bg = "#4e4a59")
         self.help_text.place(relx=0.49, rely=0.5, anchor="center")
 
     def destroyhelp(self):
@@ -87,7 +87,7 @@ class HomePage:
         self.question_button.place(relx=0.62, rely=0.8, anchor="center")
 
         #creates label that has body text
-        self.body_text = Label(self.pframe, font=("Inter", "30"), text="""Everyone at MRGS deserves running facilities, and you can help 
+        self.body_text = Label(self.pframe, font=("Inter", 30), text="""Everyone at MRGS deserves running facilities, and you can help 
         us maintain this with only a little effort on your part. 
         This website allows you to report all instances of damage to the 
         school whenever spotted and the damage will be fixed as soon 
@@ -136,22 +136,22 @@ class Choice:
         self.image_label.image = self.bg_image2_tk
 
         # button for selecting a block
-        self.A_button = Button(self.pframe, command = self.clicked_a, bg=button_color, activebackground=button_color, font=("Inter", "400", "bold"), text = "A", fg="white", borderwidth=0, cursor="hand2")
+        self.A_button = Button(self.pframe, command = self.clicked_a, bg=button_color, activebackground=button_color, font=("Inter", 400, "bold"), text = "A", fg="white", borderwidth=0, cursor="hand2")
         self.A_button.place(relx=0.295, rely=0.535, relwidth=0.365, relheight=0.68, anchor="center")
 
         #button for selecting e block
-        self.E_button = Button(self.pframe, command = self.nextpage, bg=button_color, activebackground=button_color, font=("Inter", "400", "bold"), text = "E", fg="white", borderwidth=0, cursor="hand2")
+        self.E_button = Button(self.pframe, command = self.nextpage, bg=button_color, activebackground=button_color, font=("Inter", 400, "bold"), text = "E", fg="white", borderwidth=0, cursor="hand2")
         self.E_button.place(relx=0.705, rely=0.535, relwidth=0.365, relheight=0.68, anchor="center")
 
         #label for the subheader
-        self.click_label = Label(self.pframe, bg=background_color, font=("Inter", "28", "underline"), fg="white", text = "Click to select")
+        self.click_label = Label(self.pframe, bg=background_color, font=("Inter", 28, "underline"), fg="white", text = "Click to select")
         self.click_label.place(relx = 0.5, rely = 0.12, anchor="center")
 
         #labels saying "block" under the buttons
-        self.A_label = Label(self.pframe, bg=button_color, font=("Inter", "50", "bold"), text = "Block", fg="white")
+        self.A_label = Label(self.pframe, bg=button_color, font=("Inter", 50, "bold"), text = "Block", fg="white")
         self.A_label.place(relx=0.295, rely=0.8, anchor="center")
 
-        self.E_label = Label(self.pframe, bg=button_color, font=("Inter", "50", "bold"), text = "Block", fg="white")
+        self.E_label = Label(self.pframe, bg=button_color, font=("Inter", 50, "bold"), text = "Block", fg="white")
         self.E_label.place(relx=0.705, rely=0.8, anchor="center")
 
         # setting an image for the back button
@@ -237,7 +237,7 @@ class Selector:
         self.back_button.image = self.back_button_img_tk
 
         #Label to display the currently selected toilet stall
-        self.current_selection = Label(self.pframe, bg="#394053", fg="white", font=("Inter", "27"), text=f"Currently Selected: {block} stall {stall}")
+        self.current_selection = Label(self.pframe, bg="#394053", fg="white", font=("Inter", 27), text=f"Currently Selected: {block} stall {stall}")
         self.current_selection.place(relx=0.38, rely=0.89, relwidth=0.45, relheight=0.12, anchor="center")  # make label l to fit the parent window always
 
         # sets a button with an x sign, which will close the program when clicked on
@@ -311,16 +311,16 @@ class ReportDetails:
         self.image_label.image = self.bg_image4_tk
 
         #4 labels for the text
-        self.label1 = Label(self.pframe, bg = "#cdcdcd", fg=text_colour, font =("Inter","25","bold"), text="Graffiti - Writing on the walls")
+        self.label1 = Label(self.pframe, bg = "#cdcdcd", fg=text_colour, font =("Inter",25,"bold"), text="Graffiti - Writing on the walls")
         self.label1.place(relx= 0.375, rely=0.314, relwidth=0.55, relheight=0.12, anchor="center")
 
-        self.label2 = Label(self.pframe, bg = "#f7f8f8", fg="black", font =("Inter","25","bold"), text="Damage to property - damage to the door, toilets")
+        self.label2 = Label(self.pframe, bg = "#f7f8f8", fg="black", font =("Inter",25,"bold"), text="Damage to property - damage to the door, toilets")
         self.label2.place(relx= 0.375, rely=0.455, relwidth=0.55, relheight=0.12, anchor="center")
 
-        self.label3 = Label(self.pframe, bg = "#cdcdcd", fg=text_colour, font =("Inter","25","bold"), text="Waste - Dirty floors ")
+        self.label3 = Label(self.pframe, bg = "#cdcdcd", fg=text_colour, font =("Inter",25,"bold"), text="Waste - Dirty floors ")
         self.label3.place(relx= 0.375, rely=0.596, relwidth=0.55, relheight=0.12, anchor="center")
 
-        self.label4 = Label(self.pframe, bg = "#f7f8f8", fg="black", font =("Inter","25","bold"), text="Clogging - Clogged toilet, sinks")
+        self.label4 = Label(self.pframe, bg = "#f7f8f8", fg="black", font =("Inter",25,"bold"), text="Clogging - Clogged toilet, sinks")
         self.label4.place(relx= 0.375, rely=0.737, relwidth=0.55, relheight=0.12, anchor="center")
 
         #label for button
@@ -379,31 +379,32 @@ class ReportDetails:
         check3 = IntVar()
         check4 = IntVar()
 
-        checkb1 = customtkinter.CTkCheckBox(self.pframe,
+        self.checkb1 = customtkinter.CTkCheckBox(self.pframe,
                 variable = check1, text="", onvalue = 1, command=self.clickedcheck1, offvalue=0, checkbox_width=50, checkbox_height=50,
                                             width=50, height=50, bg_color="#cdcdcd", fg_color="green")
-        checkb1.place(relx=0.62, rely=0.315, anchor="center")
+        self.checkb1.place(relx=0.62, rely=0.315, anchor="center")
 
-        checkb2 = customtkinter.CTkCheckBox(self.pframe,
+        self.checkb2 = customtkinter.CTkCheckBox(self.pframe,
                 variable = check2, text="", onvalue = 1, command=self.clickedcheck2, offvalue=0, checkbox_width=50, checkbox_height=50,
                                             width=50, height=50, bg_color="#f7f8f8", fg_color="green")
-        checkb2.place(relx=0.62, rely=0.455, anchor="center")
+        self.checkb2.place(relx=0.62, rely=0.455, anchor="center")
 
-        checkb3 = customtkinter.CTkCheckBox(self.pframe,
+        self.checkb3 = customtkinter.CTkCheckBox(self.pframe,
                 variable = check3, text="", onvalue = 1, command=self.clickedcheck3, offvalue=0, checkbox_width=50, checkbox_height=50,
                                             width=50, height=50, bg_color="#cdcdcd", fg_color="green")
-        checkb3.place(relx=0.62, rely=0.595, anchor="center")
+        self.checkb3.place(relx=0.62, rely=0.595, anchor="center")
 
-        checkb4 = customtkinter.CTkCheckBox(self.pframe,
+        self.checkb4 = customtkinter.CTkCheckBox(self.pframe,
                 variable = check4, text="", onvalue = 1, command=self.clickedcheck4, offvalue=0, checkbox_width=50, checkbox_height=50,
                                             width=50, height=50, bg_color="#f7f8f8", fg_color="green")
-        checkb4.place(relx=0.62, rely=0.735, anchor="center")
+        self.checkb4.place(relx=0.62, rely=0.735, anchor="center")
 
         #textbox for users to describe damage
-        user_entry = ""
-        submittext = customtkinter.CTkEntry(self.pframe, textvariable="", fg_color="#f7f8f8", font=("Inter", "25"),
-                                            placeholder_text="Descibe the damage", placeholder_text_color="#cdcdcd")
-        submittext.place(relx = 0.81, rely = 0.525, relheight=0.535, relwidth=0.26, anchor="center")
+        self.usertext =""
+        self.submittext = customtkinter.CTkEntry(self.pframe, textvariable=self.usertext, fg_color="#f7f8f8", font=("Inter", 25),
+                                            placeholder_text="Describe the damage", placeholder_text_color="#cdcdcd")
+        self.submittext.place(relx = 0.81, rely = 0.525,
+                              relheight=0.535, relwidth=0.26, anchor="center")
 
 
 root = Tk()  # create the main window
