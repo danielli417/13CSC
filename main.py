@@ -260,23 +260,23 @@ class Selector:
 
 class ReportDetails:
     def clickedcheck1(self):
-        checkb2.deselect()
-        checkb3.deselect()
-        checkb4.deselect()
+        self.checkb2.deselect()
+        self.checkb3.deselect()
+        self.checkb4.deselect()
     def clickedcheck2(self):
-        checkb1.deselect()
-        checkb3.deselect()
-        checkb4.deselect()
+        self.checkb1.deselect()
+        self.checkb3.deselect()
+        self.checkb4.deselect()
 
     def clickedcheck3(self):
-        checkb1.deselect()
-        checkb2.deselect()
-        checkb4.deselect()
+        self.checkb1.deselect()
+        self.checkb2.deselect()
+        self.checkb4.deselect()
 
     def clickedcheck4(self):
-        checkb1.deselect()
-        checkb2.deselect()
-        checkb3.deselect()
+        self.checkb1.deselect()
+        self.checkb2.deselect()
+        self.checkb3.deselect()
 
     def backpage(self):
         self.pframe.destroy()
