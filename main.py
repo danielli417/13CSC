@@ -311,7 +311,6 @@ class ReportDetails:
         self.image_label.image = self.bg_image4_tk
 
         #4 labels for the text
-
         self.label1 = Label(self.pframe, bg = "#cdcdcd", fg=text_colour, font =("Inter","25","bold"), text="Graffiti - Writing on the walls")
         self.label1.place(relx= 0.375, rely=0.314, relwidth=0.55, relheight=0.12, anchor="center")
 
@@ -399,10 +398,14 @@ class ReportDetails:
                 variable = check4, text="", onvalue = 1, command=self.clickedcheck4, offvalue=0, checkbox_width=50, checkbox_height=50,
                                             width=50, height=50, bg_color="#f7f8f8", fg_color="green")
         checkb4.place(relx=0.62, rely=0.735, anchor="center")
-        #textbox for users to describe damage
 
+        #textbox for users to describe damage
         user_entry = ""
-        submittext = customtkinter.CTkCheckBox(self.pframe, textvariable="", fg_color="#f7f8f8", )
+        submittext = customtkinter.CTkEntry(self.pframe, textvariable="", fg_color="#f7f8f8", font=("Inter", "25"),
+                                            placeholder_text="Descibe the damage", placeholder_text_color="#cdcdcd")
+        submittext.place(relx = 0.81, rely = 0.525, relheight=0.535, relwidth=0.26, anchor="center")
+
+
 root = Tk()  # create the main window
 root.title("MRGS TOILETS")  # set the title of the window
 root.attributes("-fullscreen", True)
