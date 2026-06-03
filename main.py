@@ -259,6 +259,34 @@ class Selector:
             self.button = Button()
 
 class ReportDetails:
+    def destroy_conf(self):
+        self.confirmation_label.destroy()
+        self.yes_button.destroy()
+        self.cancel_button.destroy()
+    def confirmation(self):
+        #sets a label which looks like a popup, which will contain a confirmation message "Are you sure?"
+        self.confirmation_image = Image.open("confirmation.png")  # background image for the help button
+        self.confirmation_image_tk = ImageTk.PhotoImage(self.confirmation_image)
+        self.confirmation_label = Label(self.pframe, image=self.confirmation_image_tk, bg = "#3d3739")
+        self.confirmation_label.place(relx=0.5, rely=0.5, anchor="center")
+        pywinstyles.set_opacity(self.confirmation_label, color="#3d3739")
+
+        #sets a cancel button, which will close the popup when clicked on
+        self.cancel_image = Image.open("cancel.png")  # using my canva design
+        self.cancel_image_tk = ImageTk.PhotoImage(self.cancel_image)
+
+        self.cancel_button = Button(self.pframe, image=self.cancel_image_tk, command=self.destroy_conf, borderwidth=0, cursor="hand2", bg = "#4e4a59", activebackground="#4e4a59")
+        self.cancel_button.place(relx=0.6, rely=0.59, anchor="center")
+
+
+        #sets a "yes" button, which will close the popup when clicked on
+        self.yes_image = Image.open("yes.png")  # using my canva design
+        self.yes_image_tk = ImageTk.PhotoImage(self.yes_image)
+
+        self.yes_button = Button(self.pframe, image=self.yes_image_tk, borderwidth=0, cursor="hand2", bg = "#4e4a59", activebackground="#4e4a59")
+        self.yes_button.place(relx=0.4, rely=0.59, anchor="center")
+
+
     def clickedcheck1(self):
         self.checkb2.deselect()
         self.checkb3.deselect()
@@ -359,7 +387,7 @@ class ReportDetails:
         self.send_image = Image.open("sendbutton.png")
         self.send_image_tk = ImageTk.PhotoImage(self.send_image)
 
-        self.send_button = Button(self.pframe, command=self.shutdown, image=self.send_image_tk,
+        self.send_button = Button(self.pframe, command=self.confirmation, image=self.send_image_tk,
                                       background=background_color,
                                       activebackground=background_color, borderwidth=0, cursor="hand2")
         self.send_button.place(relx=0.5, rely=0.89, anchor="center")
