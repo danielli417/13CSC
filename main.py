@@ -1,10 +1,8 @@
-import sys
-from sys import setrecursionlimit
 from tkinter import *  # Importing all classes from tkinter module
 import customtkinter
 import pywinstyles
 from PIL import Image, ImageTk
-import random
+import webbrowser
 #Home page
 
 class HomePage:
@@ -184,6 +182,9 @@ class Selector:
         self.pframe.destroy()
         ReportDetails(root)
 
+    def stalll1(self):
+
+
     def __init__(self, parent):
         # makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
         self.window_width = parent.winfo_screenwidth()
@@ -191,7 +192,6 @@ class Selector:
         background_color = "#364156"
         button_color = "#01122e"
         block = ''
-        stall = ''
         global a_or_e
         if a_or_e:
             block = 'A'
@@ -237,7 +237,7 @@ class Selector:
         self.back_button.image = self.back_button_img_tk
 
         #Label to display the currently selected toilet stall
-        self.current_selection = Label(self.pframe, bg="#394053", fg="white", font=("Inter", 27), text=f"Currently Selected: {block} stall {stall}")
+        self.current_selection = Label(self.pframe, bg="#394053", fg="white", font=("Inter", 27), text=f"Currently Selected: {block} stall _")
         self.current_selection.place(relx=0.38, rely=0.89, relwidth=0.45, relheight=0.12, anchor="center")  # make label l to fit the parent window always
 
         # sets a button with an x sign, which will close the program when clicked on
@@ -259,6 +259,8 @@ class Selector:
             self.button = Button()
 
 class ReportDetails:
+    def openurl(self):
+        webbrowser.open_new("https://www.mrgs.school.nz/")
     def destroy_conf(self):
         self.confirmation_label.destroy()
         self.yes_button.destroy()
@@ -283,7 +285,7 @@ class ReportDetails:
         self.yes_image = Image.open("yes.png")  # using my canva design
         self.yes_image_tk = ImageTk.PhotoImage(self.yes_image)
 
-        self.yes_button = Button(self.pframe, image=self.yes_image_tk, borderwidth=0, cursor="hand2", bg = "#4e4a59", activebackground="#4e4a59")
+        self.yes_button = Button(self.pframe, image=self.yes_image_tk, command=self.shutdown, borderwidth=0, cursor="hand2", bg = "#4e4a59", activebackground="#4e4a59")
         self.yes_button.place(relx=0.4, rely=0.59, anchor="center")
 
 
@@ -314,6 +316,8 @@ class ReportDetails:
     def nextpage(self):
         self.pframe.destroy()
         ReportDetails(root)
+    def collection(self):
+        usertext = self.submittext.get()
     def __init__(self, parent):
         # makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
         self.window_width = parent.winfo_screenwidth()
@@ -357,7 +361,7 @@ class ReportDetails:
 
         #Support us button
         self.support_button = Button(self.pframe, image=self.support_image_tk,
-                                      background=background_color,
+                                      background=background_color, command=self.openurl,
                                       activebackground=background_color, borderwidth=0, cursor="hand2")
         self.support_button.place(relx=0.15, rely=0.89, anchor="center")
         self.support_button.image = self.support_image_tk
@@ -428,11 +432,12 @@ class ReportDetails:
         self.checkb4.place(relx=0.62, rely=0.735, anchor="center")
 
         #textbox for users to describe damage
-        self.usertext =""
-        self.submittext = customtkinter.CTkEntry(self.pframe, textvariable=self.usertext, fg_color="#f7f8f8", font=("Inter", 25),
-                                            placeholder_text="Describe the damage", placeholder_text_color="#cdcdcd")
+        self.usertext = ""
+        self.submittext = customtkinter.CTkTextbox(self.pframe, fg_color="#f7f8f8", font=("Inter", 25), wrap = "word")
         self.submittext.place(relx = 0.81, rely = 0.525,
                               relheight=0.535, relwidth=0.26, anchor="center")
+        self.explaintext = Label(self.pframe, bg = "#a7a9ab", fg = "#f7f8f8", font = ("Inter",12), text = "describe the damage here")
+        self.explaintext.place(relx=0.6805,rely=0.77)
 
 
 root = Tk()  # create the main window
