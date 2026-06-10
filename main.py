@@ -3,6 +3,7 @@ import customtkinter
 import pywinstyles
 from PIL import Image, ImageTk
 import webbrowser
+import time
 #Home page
 
 class HomePage:
@@ -230,7 +231,7 @@ class Selector:
             block = 'A'
         else:
             block = 'E'
-        stall = "1"
+        stall = 1
         # frame set up
         self.pframe = Frame(parent, bg=background_color)
         self.pframe.pack(fill=BOTH, expand=TRUE)
@@ -300,6 +301,9 @@ class ReportDetails:
         self.confirmation_label.destroy()
         self.yes_button.destroy()
         self.cancel_button.destroy()
+    def endprogram(self):
+        self.endlabel(self.pframe, )
+        exit()
     def confirmation(self):
         #sets a label which looks like a popup, which will contain a confirmation message "Are you sure?"
         self.confirmation_image = Image.open("confirmation.png")  # background image for the help button
@@ -328,6 +332,7 @@ class ReportDetails:
         self.checkb2.deselect()
         self.checkb3.deselect()
         self.checkb4.deselect()
+
     def clickedcheck2(self):
         self.checkb1.deselect()
         self.checkb3.deselect()
