@@ -116,6 +116,7 @@ class Choice:
         background_color = "#364156"
         button_color = "#01122e"
         global a_or_e
+        global block
         a_or_e = 0
 
         # frame set up
@@ -182,7 +183,37 @@ class Selector:
         self.pframe.destroy()
         ReportDetails(root)
 
-    def stalll1(self):
+    def stall1(self):
+        stall=1
+        self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
+
+    def stall2(self):
+        stall = 2
+        self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
+
+    def stall3(self):
+        stall = 3
+        self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
+
+    def stall4(self):
+        stall = 4
+        self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
+
+    def stall5(self):
+        stall = 5
+        self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
+
+    def stall6(self):
+        stall = 6
+        self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
+
+    def stall7(self):
+        stall = 7
+        self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
+
+    def stall8(self):
+        stall = 8
+        self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
 
 
     def __init__(self, parent):
@@ -191,12 +222,15 @@ class Selector:
         self.window_height = parent.winfo_screenheight()
         background_color = "#364156"
         button_color = "#01122e"
+        global stall
+        global block
         block = ''
         global a_or_e
         if a_or_e:
             block = 'A'
         else:
             block = 'E'
+        stall = "1"
         # frame set up
         self.pframe = Frame(parent, bg=background_color)
         self.pframe.pack(fill=BOTH, expand=TRUE)
@@ -237,7 +271,7 @@ class Selector:
         self.back_button.image = self.back_button_img_tk
 
         #Label to display the currently selected toilet stall
-        self.current_selection = Label(self.pframe, bg="#394053", fg="white", font=("Inter", 27), text=f"Currently Selected: {block} stall _")
+        self.current_selection = Label(self.pframe, bg="#394053", fg="white", font=("Inter", 27), text=f"Currently Selected: {block} stall {stall}")
         self.current_selection.place(relx=0.38, rely=0.89, relwidth=0.45, relheight=0.12, anchor="center")  # make label l to fit the parent window always
 
         # sets a button with an x sign, which will close the program when clicked on
@@ -256,7 +290,8 @@ class Selector:
 
         #for e
         else:
-            self.button = Button()
+            self.button = Button(self.pframe, command=self.stall2)
+            self.button.place(relx=0.5,rely=0.5)
 
 class ReportDetails:
     def openurl(self):
@@ -433,7 +468,7 @@ class ReportDetails:
 
         #textbox for users to describe damage
         self.usertext = ""
-        self.submittext = customtkinter.CTkTextbox(self.pframe, fg_color="#f7f8f8", font=("Inter", 25), wrap = "word")
+        self.submittext = customtkinter.CTkTextbox(self.pframe, fg_color="#f7f8f8", font=("Inter", 30), wrap = "word")
         self.submittext.place(relx = 0.81, rely = 0.525,
                               relheight=0.535, relwidth=0.26, anchor="center")
         self.explaintext = Label(self.pframe, bg = "#a7a9ab", fg = "#f7f8f8", font = ("Inter",12), text = "describe the damage here")
