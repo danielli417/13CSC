@@ -284,16 +284,50 @@ class Selector:
                                       activebackground=background_color, borderwidth=0, cursor="hand2")
         self.shutdown_button.place(relx=0.95, rely=0.06, anchor="center")
 
+
+
         # for a
         if a_or_e == 1:
-            self.selection = Label(self.pframe)
+            self.stall1button = Button(self.pframe, command=self.stall1, font=("Inter", 25), text ="Stall 1")
+            self.stall1button.place(relx=0.3,rely=0.5)
+
+            self.stall2button = Button(self.pframe, command=self.stall2, font=("Inter", 25), text="Stall 2")
+            self.stall2button.place(relx=0.4, rely=0.5)
+
+            self.stall3button = Button(self.pframe, command=self.stall3, font=("Inter", 25), text="Stall 3")
+            self.stall3button.place(relx=0.5, rely=0.5)
+
+            self.stall4button = Button(self.pframe, command=self.stall4, font=("Inter", 25), text="Stall 4")
+            self.stall4button.place(relx=0.6, rely=0.5)
+
+            self.stall4button = Button(self.pframe, command=self.stall5, font=("Inter", 25), text="Stall 5")
+            self.stall4button.place(relx=0.7, rely=0.5)
             #skip this for now
 
         #for e
         else:
-            self.button = Button(self.pframe, command=self.stall2)
-            self.button.place(relx=0.5,rely=0.5)
+            #displaying the image of the toilets
+            self.eblock1 = Image.open("eblock1.jpg")  # using my canva design
+            self.eblock1_tk = ImageTk.PhotoImage(self.eblock1)
 
+            self.toiletdisplay = Label(self.pframe, bg="#ffffff", image=self.eblock1_tk)
+            self.toiletdisplay.place(relx=0.5, rely=0.43, anchor="center")
+            self.toiletdisplay.image = self.eblock1_tk
+
+            self.stall1button = Button(self.pframe, command=self.stall1, font=("Inter", 25), text ="Stall 1")
+            self.stall1button.place(relx=0.3,rely=0.5)
+
+            self.stall2button = Button(self.pframe, command=self.stall2, font=("Inter", 25), text="Stall 2")
+            self.stall2button.place(relx=0.4, rely=0.5)
+
+            self.stall3button = Button(self.pframe, command=self.stall3, font=("Inter", 25), text="Stall 3")
+            self.stall3button.place(relx=0.5, rely=0.5)
+
+            self.stall4button = Button(self.pframe, command=self.stall4, font=("Inter", 25), text="Stall 4")
+            self.stall4button.place(relx=0.6, rely=0.5)
+
+            self.stall4button = Button(self.pframe, command=self.stall5, font=("Inter", 25), text="Stall 5")
+            self.stall4button.place(relx=0.7, rely=0.5)
 class ReportDetails:
     def openurl(self):
         webbrowser.open_new("https://www.mrgs.school.nz/")
