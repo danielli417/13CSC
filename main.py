@@ -288,46 +288,76 @@ class Selector:
 
         # for a
         if a_or_e == 1:
+            #displaying the image of the toilets
+            self.ablock = Image.open("ablock.jpg")  # using my canva design
+            self.ablock_tk = ImageTk.PhotoImage(self.ablock)
+
+            self.toiletdisplay = Label(self.pframe, bg="#ffffff", image=self.ablock_tk)
+            self.toiletdisplay.place(relx=0.5, rely=0.43, anchor="center")
+            self.toiletdisplay.image = self.ablock_tk
+
             self.stall1button = Button(self.pframe, command=self.stall1, font=("Inter", 25), text ="Stall 1")
-            self.stall1button.place(relx=0.3,rely=0.5)
+            self.stall1button.place(relx=0.3,rely=0.4)
 
             self.stall2button = Button(self.pframe, command=self.stall2, font=("Inter", 25), text="Stall 2")
-            self.stall2button.place(relx=0.4, rely=0.5)
+            self.stall2button.place(relx=0.4, rely=0.45)
 
             self.stall3button = Button(self.pframe, command=self.stall3, font=("Inter", 25), text="Stall 3")
             self.stall3button.place(relx=0.5, rely=0.5)
 
             self.stall4button = Button(self.pframe, command=self.stall4, font=("Inter", 25), text="Stall 4")
-            self.stall4button.place(relx=0.6, rely=0.5)
+            self.stall4button.place(relx=0.65, rely=0.5)
 
-            self.stall4button = Button(self.pframe, command=self.stall5, font=("Inter", 25), text="Stall 5")
-            self.stall4button.place(relx=0.7, rely=0.5)
-            #skip this for now
 
         #for e
         else:
-            #displaying the image of the toilets
             self.eblock1 = Image.open("eblock1.jpg")  # using my canva design
             self.eblock1_tk = ImageTk.PhotoImage(self.eblock1)
 
+            # displaying the image of the toilets
             self.toiletdisplay = Label(self.pframe, bg="#ffffff", image=self.eblock1_tk)
             self.toiletdisplay.place(relx=0.5, rely=0.43, anchor="center")
             self.toiletdisplay.image = self.eblock1_tk
 
             self.stall1button = Button(self.pframe, command=self.stall1, font=("Inter", 25), text ="Stall 1")
-            self.stall1button.place(relx=0.3,rely=0.5)
+            self.stall1button.place(relx=0.25,rely=0.4)
 
             self.stall2button = Button(self.pframe, command=self.stall2, font=("Inter", 25), text="Stall 2")
-            self.stall2button.place(relx=0.4, rely=0.5)
+            self.stall2button.place(relx=0.45, rely=0.4)
 
             self.stall3button = Button(self.pframe, command=self.stall3, font=("Inter", 25), text="Stall 3")
-            self.stall3button.place(relx=0.5, rely=0.5)
+            self.stall3button.place(relx=0.6, rely=0.4)
 
             self.stall4button = Button(self.pframe, command=self.stall4, font=("Inter", 25), text="Stall 4")
-            self.stall4button.place(relx=0.6, rely=0.5)
+            self.stall4button.place(relx=0.67, rely=0.4)
 
             self.stall4button = Button(self.pframe, command=self.stall5, font=("Inter", 25), text="Stall 5")
-            self.stall4button.place(relx=0.7, rely=0.5)
+            self.stall4button.place(relx=0.74, rely=0.4)
+
+            # setting an image for the left button
+            self.left_button_img = Image.open("left.png")  # using my canva design
+            self.left_button_img_tk = ImageTk.PhotoImage(self.left_button_img)
+
+            # left button
+            self.left_button = Button(self.pframe, image=self.left_button_img_tk, command=self.backpage, bg="#293142",
+                                      activebackground="#293142",
+                                      borderwidth=0, cursor="hand2")
+            self.left_button.place(relx=0.1, rely=0.45, anchor="center")
+            self.left_button.image = self.left_button_img_tk
+
+            # setting an image for the right button
+            self.right_button_img = Image.open("right.png")  # using my canva design
+            self.right_button_img_tk = ImageTk.PhotoImage(self.right_button_img)
+
+            # left button
+            self.right_button = Button(self.pframe, image=self.right_button_img_tk, command=self.backpage, bg="#293142",
+                                      activebackground="#293142",
+                                      borderwidth=0, cursor="hand2")
+            self.right_button.place(relx=0.9, rely=0.45, anchor="center")
+            self.right_button.image = self.right_button_img_tk
+
+
+
 class ReportDetails:
     def openurl(self):
         webbrowser.open_new("https://www.mrgs.school.nz/")
