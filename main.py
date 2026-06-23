@@ -216,6 +216,166 @@ class Selector:
         stall = 8
         self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
 
+    def stall9(self):
+        stall = 9
+        self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
+
+    def stall10(self):
+        stall = 10
+        self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
+
+    def stall11(self):
+        stall = 11
+        self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
+
+    def stall12(self):
+        stall = 12
+        self.current_selection.config(text=f"Currently Selected: {block} stall {stall}")
+
+    def changescreen1(self):
+        global currentpage
+        if currentpage == "Centre":
+            currentpage = "Left"
+            self.toiletdisplay.destroy()
+            self.stall1button.destroy()
+            self.stall2button.destroy()
+            self.stall3button.destroy()
+            self.stall4button.destroy()
+            self.stall5button.destroy()
+
+
+            self.eblock3 = Image.open("eblock3.jpg")  # using my canva design
+            self.eblock3_tk = ImageTk.PhotoImage(self.eblock3)
+
+            # displaying the image of the toilets
+            self.toiletdisplay = Label(self.pframe, bg="#ffffff", image=self.eblock3_tk)
+            self.toiletdisplay.place(relx=0.5, rely=0.43, anchor="center")
+            self.toiletdisplay.image = self.eblock3_tk
+
+            self.stall9button = Button(self.pframe, command=self.stall9, font=("Inter", 25), text="Stall 9")
+            self.stall9button.place(relx=0.25, rely=0.4)
+
+            self.stall10button = Button(self.pframe, command=self.stall10, font=("Inter", 25), text="Stall 10")
+            self.stall10button.place(relx=0.45, rely=0.4)
+
+            self.stall11button = Button(self.pframe, command=self.stall11, font=("Inter", 25), text="Stall 11")
+            self.stall11button.place(relx=0.6, rely=0.4)
+
+            self.stall12button = Button(self.pframe, command=self.stall12, font=("Inter", 25), text="Stall 12")
+            self.stall12button.place(relx=0.6, rely=0.4)
+
+        elif currentpage == "Right":
+            currentpage = "Centre"
+            self.eblock1 = Image.open("eblock1.jpg")  # using my canva design
+            self.eblock1_tk = ImageTk.PhotoImage(self.eblock1)
+
+            # displaying the image of the toilets
+            self.toiletdisplay = Label(self.pframe, bg="#ffffff", image=self.eblock1_tk)
+            self.toiletdisplay.place(relx=0.5, rely=0.43, anchor="center")
+            self.toiletdisplay.image = self.eblock1_tk
+
+            self.stall1button = Button(self.pframe, command=self.stall1, font=("Inter", 25), text ="Stall 1")
+            self.stall1button.place(relx=0.25,rely=0.4)
+
+            self.stall2button = Button(self.pframe, command=self.stall2, font=("Inter", 25), text="Stall 2")
+            self.stall2button.place(relx=0.45, rely=0.4)
+
+            self.stall3button = Button(self.pframe, command=self.stall3, font=("Inter", 25), text="Stall 3")
+            self.stall3button.place(relx=0.6, rely=0.4)
+
+            self.stall4button = Button(self.pframe, command=self.stall4, font=("Inter", 25), text="Stall 4")
+            self.stall4button.place(relx=0.67, rely=0.4)
+
+            self.stall5button = Button(self.pframe, command=self.stall5, font=("Inter", 25), text="Stall 5")
+            self.stall5button.place(relx=0.74, rely=0.4)
+
+            # setting an image for the left button
+            self.left_button_img = Image.open("left.png")  # using my canva design
+            self.left_button_img_tk = ImageTk.PhotoImage(self.left_button_img)
+
+            # left button
+            self.left_button = Button(self.pframe, image=self.left_button_img_tk, command=self.changescreen1, bg="black",
+                                      activebackground="#293142",
+                                      borderwidth=0, cursor="hand2")
+            self.left_button.place(relx=0.08
+                                   , rely=0.45, anchor="center")
+            self.left_button.image = self.left_button_img_tk
+
+            # setting an image for the right button
+            self.right_button_img = Image.open("right.png")  # using my canva design
+            self.right_button_img_tk = ImageTk.PhotoImage(self.right_button_img)
+
+            # left button
+            self.right_button = Button(self.pframe, image=self.right_button_img_tk, command=self.changescreen2, bg="black",
+                                      activebackground="#293142",
+                                      borderwidth=0, cursor="hand2")
+            self.right_button.place(relx=0.92, rely=0.45, anchor="center")
+            self.right_button.image = self.right_button_img_tk
+    def changescreen2(self):
+        global currentpage
+        if currentpage == "Centre":
+            currentpage = "Right"
+            self.toiletdisplay.destroy()
+            self.stall1button.destroy()
+            self.stall2button.destroy()
+            self.stall3button.destroy()
+            self.stall4button.destroy()
+            self.stall5button.destroy()
+
+            self.eblock2 = Image.open("eblock2.jpg")  # using my canva design
+            self.eblock2_tk = ImageTk.PhotoImage(self.eblock2)
+
+            # displaying the image of the toilets
+            self.toiletdisplay = Label(self.pframe, bg="#ffffff", image=self.eblock2_tk)
+            self.toiletdisplay.place(relx=0.5, rely=0.43, anchor="center")
+            self.toiletdisplay.image = self.eblock2_tk
+        elif currentpage == "Left":
+            currentpage = "Centre"
+            self.eblock1 = Image.open("eblock1.jpg")  # using my canva design
+            self.eblock1_tk = ImageTk.PhotoImage(self.eblock1)
+
+            # displaying the image of the toilets
+            self.toiletdisplay = Label(self.pframe, bg="#ffffff", image=self.eblock1_tk)
+            self.toiletdisplay.place(relx=0.5, rely=0.43, anchor="center")
+            self.toiletdisplay.image = self.eblock1_tk
+
+            self.stall1button = Button(self.pframe, command=self.stall1, font=("Inter", 25), text ="Stall 1")
+            self.stall1button.place(relx=0.25,rely=0.4)
+
+            self.stall2button = Button(self.pframe, command=self.stall2, font=("Inter", 25), text="Stall 2")
+            self.stall2button.place(relx=0.45, rely=0.4)
+
+            self.stall3button = Button(self.pframe, command=self.stall3, font=("Inter", 25), text="Stall 3")
+            self.stall3button.place(relx=0.6, rely=0.4)
+
+            self.stall4button = Button(self.pframe, command=self.stall4, font=("Inter", 25), text="Stall 4")
+            self.stall4button.place(relx=0.67, rely=0.4)
+
+            self.stall5button = Button(self.pframe, command=self.stall5, font=("Inter", 25), text="Stall 5")
+            self.stall5button.place(relx=0.74, rely=0.4)
+
+            # setting an image for the left button
+            self.left_button_img = Image.open("left.png")  # using my canva design
+            self.left_button_img_tk = ImageTk.PhotoImage(self.left_button_img)
+
+            # left button
+            self.left_button = Button(self.pframe, image=self.left_button_img_tk, command=self.changescreen1, bg="black",
+                                      activebackground="#293142",
+                                      borderwidth=0, cursor="hand2")
+            self.left_button.place(relx=0.08
+                                   , rely=0.45, anchor="center")
+            self.left_button.image = self.left_button_img_tk
+
+            # setting an image for the right button
+            self.right_button_img = Image.open("right.png")  # using my canva design
+            self.right_button_img_tk = ImageTk.PhotoImage(self.right_button_img)
+
+            # left button
+            self.right_button = Button(self.pframe, image=self.right_button_img_tk, command=self.changescreen2, bg="black",
+                                      activebackground="#293142",
+                                      borderwidth=0, cursor="hand2")
+            self.right_button.place(relx=0.92, rely=0.45, anchor="center")
+            self.right_button.image = self.right_button_img_tk
 
     def __init__(self, parent):
         # makes variables that have the value of the parent screen width (eg if a device aspect ratio is 3:4, the variables are 3:4)
@@ -225,6 +385,7 @@ class Selector:
         button_color = "#01122e"
         global stall
         global block
+        global currentpage
         block = ''
         global a_or_e
         if a_or_e:
@@ -311,6 +472,7 @@ class Selector:
 
         #for e
         else:
+            currentpage = "Centre"
             self.eblock1 = Image.open("eblock1.jpg")  # using my canva design
             self.eblock1_tk = ImageTk.PhotoImage(self.eblock1)
 
@@ -331,18 +493,19 @@ class Selector:
             self.stall4button = Button(self.pframe, command=self.stall4, font=("Inter", 25), text="Stall 4")
             self.stall4button.place(relx=0.67, rely=0.4)
 
-            self.stall4button = Button(self.pframe, command=self.stall5, font=("Inter", 25), text="Stall 5")
-            self.stall4button.place(relx=0.74, rely=0.4)
+            self.stall5button = Button(self.pframe, command=self.stall5, font=("Inter", 25), text="Stall 5")
+            self.stall5button.place(relx=0.74, rely=0.4)
 
             # setting an image for the left button
             self.left_button_img = Image.open("left.png")  # using my canva design
             self.left_button_img_tk = ImageTk.PhotoImage(self.left_button_img)
 
             # left button
-            self.left_button = Button(self.pframe, image=self.left_button_img_tk, command=self.backpage, bg="#293142",
+            self.left_button = Button(self.pframe, image=self.left_button_img_tk, command=self.changescreen1, bg="black",
                                       activebackground="#293142",
                                       borderwidth=0, cursor="hand2")
-            self.left_button.place(relx=0.08, rely=0.45, anchor="center")
+            self.left_button.place(relx=0.08
+                                   , rely=0.45, anchor="center")
             self.left_button.image = self.left_button_img_tk
 
             # setting an image for the right button
@@ -350,7 +513,7 @@ class Selector:
             self.right_button_img_tk = ImageTk.PhotoImage(self.right_button_img)
 
             # left button
-            self.right_button = Button(self.pframe, image=self.right_button_img_tk, command=self.backpage, bg="#293142",
+            self.right_button = Button(self.pframe, image=self.right_button_img_tk, command=self.changescreen2, bg="black",
                                       activebackground="#293142",
                                       borderwidth=0, cursor="hand2")
             self.right_button.place(relx=0.92, rely=0.45, anchor="center")
