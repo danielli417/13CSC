@@ -342,7 +342,7 @@ class Selector:
             self.left_button = Button(self.pframe, image=self.left_button_img_tk, command=self.backpage, bg="#293142",
                                       activebackground="#293142",
                                       borderwidth=0, cursor="hand2")
-            self.left_button.place(relx=0.1, rely=0.45, anchor="center")
+            self.left_button.place(relx=0.08, rely=0.45, anchor="center")
             self.left_button.image = self.left_button_img_tk
 
             # setting an image for the right button
@@ -353,7 +353,7 @@ class Selector:
             self.right_button = Button(self.pframe, image=self.right_button_img_tk, command=self.backpage, bg="#293142",
                                       activebackground="#293142",
                                       borderwidth=0, cursor="hand2")
-            self.right_button.place(relx=0.9, rely=0.45, anchor="center")
+            self.right_button.place(relx=0.92, rely=0.45, anchor="center")
             self.right_button.image = self.right_button_img_tk
 
 
