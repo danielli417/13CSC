@@ -262,7 +262,7 @@ class Selector:
             self.stall11button.place(relx=0.6, rely=0.4)
 
             self.stall12button = Button(self.pframe, command=self.stall12, font=("Inter", 25), text="Stall 12")
-            self.stall12button.place(relx=0.6, rely=0.4)
+            self.stall12button.place(relx=0.7, rely=0.4)
 
         elif currentpage == "Right":
             currentpage = "Centre"
@@ -329,6 +329,19 @@ class Selector:
             self.toiletdisplay = Label(self.pframe, bg="#ffffff", image=self.eblock2_tk)
             self.toiletdisplay.place(relx=0.5, rely=0.43, anchor="center")
             self.toiletdisplay.image = self.eblock2_tk
+
+            self.stall5button = Button(self.pframe, command=self.stall5, font=("Inter", 25), text="Stall 5")
+            self.stall5button.place(relx=0.2, rely=0.4)
+
+            self.stall6button = Button(self.pframe, command=self.stall6, font=("Inter", 25), text="Stall 6")
+            self.stall6button.place(relx=0.3, rely=0.4)
+
+            self.stall7button = Button(self.pframe, command=self.stall7, font=("Inter", 25), text="Stall 7")
+            self.stall7button.place(relx=0.43, rely=0.4)
+
+            self.stall8button = Button(self.pframe, command=self.stall12, font=("Inter", 25), text="Stall 8")
+            self.stall8button.place(relx=0.6, rely=0.4)
+
         elif currentpage == "Left":
             currentpage = "Centre"
             self.eblock1 = Image.open("eblock1.jpg")  # using my canva design
